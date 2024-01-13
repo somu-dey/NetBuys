@@ -1,0 +1,44 @@
+.typed {
+  font-size: 18px;
+}
+.typediv {
+  width: 400px;
+}
+* {
+  font-family: "Nunito Sans";
+}
+/* button {
+  background-color: #4244e6;
+}
+button:hover {
+  background-color: aqua;
+} */
+video {
+  height: "100%";
+}
+@media screen and (max-width: 360px) {
+  .typediv {
+    width: 300px;
+  }
+  .typed {
+    font-size: 10px;
+  }
+  .landingimg {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .typed {
+    font-size: 14px;
+  }
+  .typediv {
+    width: 320px;
+  }
+  /* .landingimg {
+    width: 100%;
+  } */
+  video {
+    height: 400px;
+  }
+}

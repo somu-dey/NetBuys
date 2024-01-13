@@ -1,0 +1,14 @@
+.leftdiv-main {
+  width: 50%;
+}
+.rightdiv-main {
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .leftdiv-main {
+    width: 100%;
+  }
+  .rightdiv-main {
+    width: 100%;
+  }
+}

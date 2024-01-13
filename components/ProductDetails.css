@@ -1,0 +1,14 @@
+.descContainer {
+  flex-direction: row;
+}
+.leftdiv {
+  width: 60%;
+}
+@media screen and (max-width: 768px) {
+  .descContainer {
+    flex-direction: column;
+  }
+  .leftdiv {
+    width: 100%;
+  }
+}
