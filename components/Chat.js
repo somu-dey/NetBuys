@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
-import Messages from "./Messages";
+import Message from "../images/Message.jpg";
+// import Messages from "./Messages";
+import "./Chat.css";
 import { collection, orderBy, query } from "firebase/firestore";
-import { database } from "./firebase";
+import { database } from "../components/firebase";
 import { onSnapshot } from "firebase/firestore";
 import SendMessages from "./SendMessages";
 
@@ -32,11 +34,13 @@ const Chat = () => {
 
   return (
     <div
-      className="container"
+      className="container-fluid"
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "95vh",
+        height: "100vh",
+        position: "relative",
+        // backgroundColor: "#FCF0C8",
       }}
     >
       <div
@@ -45,53 +49,75 @@ const Chat = () => {
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
+          // backgroundColor: "#4622FE",
           padding: "20px",
         }}
       >
         <h1>NetBuys ChatRoom</h1>
       </div>
-      <div style={{ overflowY: "auto" }}>
+      <div
+        className="msgsDiv"
+        style={{
+          display: "flex",
+          overflowY: "auto",
+          flexDirection: "column",
+          // padding: "5rem",
+          backgroundImage: `url(${Message})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          gap: "1rem",
+        }}
+      >
         {messages &&
           messages.map((message) => (
-            <div key={message.id} style={{ gap: "2rem", rowGap: "2rem" }}>
+            <div
+              className="top-msg-div"
+              key={message.id}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "2rem",
+                rowGap: "2rem",
+                wordWrap: "break-word",
+                textAlign: "justify",
+              }}
+            >
               {message.uid === user.uid ? (
-                <>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "left",
-                      textAlign: "left",
-                      flexDirection: "column",
-                      rowGap: "0px",
-                      margin: "10px",
-                      backgroundColor: "#EEF5FF",
-                      borderRadius: "5px",
-                      // padding: "1rem",
-                    }}
-                  >
-                    <span style={{ fontSize: "8px" }}>{message.name}</span>
-                    <p key={message.id}>{message.text}</p>
-                  </div>
-                </>
+                <div
+                  style={{
+                    maxWidth: "60%",
+                    padding: ".5rem 1rem ",
+                    backgroundColor: "#EDE4FF",
+                    borderRadius: "0px 10px 10px 10px",
+                    alignSelf: "flex-start",
+                  }}
+                >
+                  <span style={{ fontSize: "10px" }}>{message.name}</span>
+                  <p key={message.id} style={{ margin: 0 }}>
+                    {message.text}
+                  </p>
+                </div>
               ) : (
-                <>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "right",
-                      textAlign: "right",
-                      flexDirection: "column",
-                      rowGap: "0px",
-                      margin: "10px",
-                      borderRadius: "5px",
-                      color: "white",
-                      backgroundColor: "#6528F7",
-                    }}
-                  >
-                    <span style={{ fontSize: "10px" }}>{message.name}</span>
-                    <p key={message.id}>{message.text}</p>
-                  </div>
-                </>
+                <div
+                  style={{
+                    maxWidth: "60%",
+                    padding: ".5rem 1rem",
+                    background: "#4622FE",
+                    borderRadius: "10px 0px 10px 10px",
+                    wordWrap: "break-word",
+                    // alignSelf: "flex-end",
+                    justifyContent: "center",
+                    marginLeft: "auto",
+                    // right: "40%",
+                  }}
+                >
+                  <span style={{ fontSize: "10px", color: "white" }}>
+                    {message.name}
+                  </span>
+                  <p key={message.id} style={{ margin: 0, color: "white" }}>
+                    {message.text}
+                  </p>
+                </div>
               )}
             </div>
           ))}
