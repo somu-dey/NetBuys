@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Adproduct.css";
+import { useNavigate } from "react-router-dom";
 import Sample from "../components/Sample";
 import { toast, Toaster } from "react-hot-toast";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -41,9 +42,9 @@ function AdCar() {
     });
   };
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (
       formData.brand &&
       formData.adTitle &&
@@ -84,6 +85,7 @@ function AdCar() {
           imageUrl,
           ...formDataWithoutPhotos,
           username,
+          uid: auth.currentUser.uid,
           category: "CarAds",
           transmission: formData.transmission || "", // Assuming transmission is optional
         });
@@ -92,6 +94,7 @@ function AdCar() {
         const allAds = await addDoc(allAdsCollectionRef, {
           imageUrl,
           ...formDataWithoutPhotos,
+          uid: auth.currentUser.uid,
           username,
         });
         // -----------------------------------------------------------------------------------------------------------------------------
@@ -120,6 +123,7 @@ function AdCar() {
           phoneNumber: "",
           photos: [],
         });
+        navigate("/");
       } catch (error) {
         console.error("Error submitting data:", error.message);
       } finally {

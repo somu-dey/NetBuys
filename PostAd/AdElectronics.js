@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Adproduct.css";
+import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { database } from "../components/firebase";
@@ -10,6 +11,7 @@ import { getAuth } from "firebase/auth";
 import Adelectronic from "../images/Adelectronic.jpg";
 import Sample from "../components/Sample";
 function AdElectronics() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     adTitle: "",
@@ -103,6 +105,7 @@ function AdElectronics() {
           phoneNumber: "",
           photos: [],
         });
+        navigate("/");
       } catch (error) {
         console.error("Error submitting data:", error.message);
       } finally {

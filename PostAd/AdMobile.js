@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Adproduct.css";
+import { useNavigate } from "react-router-dom";
 import Admobile from "../images/Admobile.jpg";
 import { toast, Toaster } from "react-hot-toast";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -37,6 +38,7 @@ function AdMobile() {
       photos: files,
     });
   };
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -109,6 +111,7 @@ function AdMobile() {
           phoneNumber: "",
           photos: [],
         });
+        navigate("/");
       } catch (error) {
         console.error("Error submitting data:", error.message);
       } finally {
