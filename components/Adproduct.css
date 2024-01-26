@@ -1,0 +1,57 @@
+/* * {
+  font-family: "Nunito Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+} */
+h2 {
+  text-align: center;
+  color: #333;
+}
+.mobileadimg {
+  height: 25rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+img {
+  width: 50%;
+}
+label {
+  margin: 10px 0;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.postadbtn {
+  background-color: #ff4f5a;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.admaindiv {
+  padding: 6rem;
+}
+.postadbtn:hover {
+  background-color: #e93440;
+}
+@media (max-width: 640px) {
+  .admaindiv {
+    padding: 3rem;
+  }
+  img {
+    width: 100%;
+  }
+  .mobileadimg {
+    height: 20rem;
+  }
+}

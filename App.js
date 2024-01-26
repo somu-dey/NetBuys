@@ -12,6 +12,8 @@ import MainAds from "./components/MainAds";
 import About from "./HeaderNav/About";
 // import ProductDesc from "./components/ProductDesc";
 import AdCar from "./PostAd/AdCar";
+import MyWishlist from "./HeaderNav/MyWishlist";
+import ChatUsers from "./chats/ChatUsers";
 import AdMobile from "./PostAd/AdMobile";
 import AdElectronics from "./PostAd/AdElectronics";
 import MyAds from "./components/MyAds";
@@ -20,7 +22,7 @@ import { AnimatePresence } from "framer-motion";
 import { NextUIProvider } from "@nextui-org/react";
 import ForgotPassword from "./components/ForgotPass";
 import Contact from "./HeaderNav/Contact";
-import Chat from "./components/Chat";
+import Chat from "../src/chats/Chat";
 function App() {
   const location = useLocation();
   return (
@@ -39,8 +41,11 @@ function App() {
           <Route path="/admobile" element={<AdMobile />} />
           <Route path="/adelectronic" element={<AdElectronics />} />
           <Route path="/myads" element={<MyAds />} />
+          <Route path="/mywishlist" element={<MyWishlist />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/chatUsers" element={<ChatUsers />} />
+
           <Route path="/productdetails/:id" element={<ProductDetails />} />
         </Routes>
       </AnimatePresence>

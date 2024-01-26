@@ -1,7 +1,7 @@
 // src/components/AboutUs.js
 import Aboutus from "../images/Aboutus.jpg";
 import React from "react";
-import { FaUser } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
 import { motion } from "framer-motion";
 import "./Contact.css";
 import { RiAdvertisementFill } from "react-icons/ri";
@@ -100,20 +100,21 @@ const About = () => {
             }}
           >
             <div
-              className="d-flex row"
+              className="d-flex row howItWorks"
               style={{
                 width: "10rem",
-                gap: ".2rem",
+                // backgroundColor: "#4244E6",
+                // gap: ".2rem",
               }}
             >
-              <FaUser style={{ height: "4rem" }} />
+              <MdAccountCircle style={{ height: "4rem" }} />
               <h5>Create Account</h5>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Officiis, nam.
               </p>
             </div>
-            <div className="d-flex row" style={{ width: "10rem" }}>
+            <div className="d-flex row howItWorks" style={{ width: "10rem" }}>
               <RiAdvertisementFill style={{ height: "4rem" }} />
               <h5>Post Your Ad</h5>
               <p>
@@ -121,7 +122,7 @@ const About = () => {
                 Officiis, nam.
               </p>
             </div>
-            <div className="d-flex row" style={{ width: "10rem" }}>
+            <div className="d-flex row howItWorks" style={{ width: "10rem" }}>
               <BiSolidOffer style={{ height: "4rem" }} />
               <h5> Get Offers</h5>
               <p>
@@ -129,7 +130,7 @@ const About = () => {
                 Officiis, nam.
               </p>
             </div>
-            <div className="d-flex row" style={{ width: "10rem" }}>
+            <div className="d-flex row howItWorks" style={{ width: "10rem" }}>
               <FaHandshake style={{ height: "4rem" }} />
               <h5>Sell Your Item</h5>
               <p>

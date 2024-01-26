@@ -1,0 +1,21 @@
+.descContainer {
+  flex-direction: row;
+}
+.leftdiv {
+  width: 60%;
+}
+.leftdiv-overview {
+  background-color: white;
+}
+@media screen and (max-width: 768px) {
+  .descContainer {
+    flex-direction: column;
+  }
+  .leftdiv {
+    width: 100%;
+  }
+  .leftdiv-overview {
+    width: 100%;
+    background-color: #ede4ff;
+  }
+}
