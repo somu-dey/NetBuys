@@ -1,7 +1,7 @@
 // src/components/AboutUs.js
 import Aboutus from "../images/Aboutus.jpg";
 import React from "react";
-import { FaUser } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
 import { motion } from "framer-motion";
 import "./Contact.css";
 import { RiAdvertisementFill } from "react-icons/ri";
@@ -49,21 +49,21 @@ const About = () => {
           >
             <h1>We Are NetBuys ❤</h1>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id
-              facilis velit nihil asperiores amet quas voluptatem! Minima,
-              quisquam eum. Iusto enim, magni et libero rem repellendus?
-              Adipisci hic dolorum maiores ea! Sapiente exercitationem quaerat
-              perferendis alias, consectetur laboriosam libero, iste neque
-              commodi dolor facere corporis ipsam ratione deleniti nesciunt
-              quae.
+              Explore the convenience of NetBuys, where buying and selling used
+              products, electronics, and more is made simple. Our user-friendly
+              platform ensures a seamless online trading experience, connecting
+              individuals and businesses effortlessly. Join our community to
+              discover a secure and vibrant marketplace, transforming the way
+              you trade with confidence.
             </p>
             <h2>What We Do</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              voluptatem repellat quibusdam ratione ab debitis eius dolore
-              incidunt et dolor, magnam tempore provident fuga natus voluptates
-              nobis sit facere? Molestias eaque consectetur assumenda quod
-              aliquam cumque tempore. Eius, tempora dolore!
+              At NetBuys, we're dedicated to revolutionizing online marketplace,
+              focusing on creating a seamless platform for buying and selling
+              used products and electronics. Our user-friendly environment
+              connects individuals effortlessly, fostering a sense of community.
+              Declutter your space or discover unique items with ease. Join us
+              in transforming the way you engage with pre-loved treasures.
             </p>
           </div>
           <div
@@ -100,45 +100,48 @@ const About = () => {
             }}
           >
             <div
-              className="d-flex row"
+              className="d-flex row howItWorks"
               style={{
                 width: "10rem",
-                gap: ".2rem",
+                // height: "20rem",
+                // backgroundColor: "#4244E6",
+                // gap: ".2rem",
               }}
             >
-              <FaUser style={{ height: "4rem" }} />
+              <MdAccountCircle style={{ height: "4rem" }} />
               <h5>Create Account</h5>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Officiis, nam.
+                Join NetBuys, your vibrant online marketplace for buying and
+                selling used products.
               </p>
             </div>
-            <div className="d-flex row" style={{ width: "10rem" }}>
+            <div className="d-flex row howItWorks" style={{ width: "10rem" }}>
               <RiAdvertisementFill style={{ height: "4rem" }} />
               <h5>Post Your Ad</h5>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Officiis, nam.
+                Showcase your items easily by posting an ad with descriptions
+                and images, reaching potential buyers looking for unique finds.
               </p>
             </div>
-            <div className="d-flex row" style={{ width: "10rem" }}>
+            <div className="d-flex row howItWorks" style={{ width: "10rem" }}>
               <BiSolidOffer style={{ height: "4rem" }} />
               <h5> Get Offers</h5>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Officiis, nam.
+                Experience the convenience of receiving offers from buyers, with
+                a diverse community eager to explore your listings.
               </p>
             </div>
-            <div className="d-flex row" style={{ width: "10rem" }}>
+            <div className="d-flex row howItWorks" style={{ width: "10rem" }}>
               <FaHandshake style={{ height: "4rem" }} />
               <h5>Sell Your Item</h5>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Officiis, nam.
+                Finalize deals confidently, ensuring a seamless and secure
+                online trading experience.
               </p>
             </div>
           </div>
         </div>
+        <div style={{ margin: "1rem" }}></div>
         <Footer />
       </div>
     </motion.div>

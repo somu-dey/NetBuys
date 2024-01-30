@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import "./Adproduct.css";
 import { useNavigate } from "react-router-dom";
 import Sample from "../components/Sample";
+import Adbike from "../images/Adbike.jpg";
 import { toast, Toaster } from "react-hot-toast";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { database } from "../components/firebase";
 import { collection, addDoc } from "firebase/firestore";
-import Adcar from "../images/Adcar.jpg";
 import { storage } from "../components/firebase";
 import { getAuth } from "firebase/auth";
 import { motion } from "framer-motion";
-function AdCar() {
+function AdBike() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     brand: "",
@@ -71,22 +71,22 @@ function AdCar() {
         await uploadBytes(imageRef, formData.photos[0]);
         const imageUrl = await getDownloadURL(imageRef);
 
-        const userCarAdsCollection = collection(
+        const userBikeAdsCollection = collection(
           database,
           "UserAds",
           auth.currentUser.uid,
-          "CarAds"
+          "BikeAds"
         );
         const formDataWithoutPhotos = { ...formData };
         delete formDataWithoutPhotos.photos;
         const username = auth.currentUser.displayName;
-        const docRef = await addDoc(userCarAdsCollection, {
+        const docRef = await addDoc(userBikeAdsCollection, {
           // uid: auth.currentUser.uid,
           imageUrl,
           ...formDataWithoutPhotos,
           username,
           uid: auth.currentUser.uid,
-          category: "CarAds",
+          category: "BikeAds",
           transmission: formData.transmission || "", // Assuming transmission is optional
         });
         // all ads collection-------------------------------------------------------------------------------------------------------
@@ -95,6 +95,7 @@ function AdCar() {
           imageUrl,
           ...formDataWithoutPhotos,
           uid: auth.currentUser.uid,
+          category: "BikeAds",
           username,
         });
         // -----------------------------------------------------------------------------------------------------------------------------
@@ -162,7 +163,7 @@ function AdCar() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                backgroundColor: "#ff4f5a",
+                backgroundColor: "#0062D1",
                 alignItems: "center",
                 width: "100%",
               }}
@@ -174,7 +175,7 @@ function AdCar() {
               // className="d"
               style={{
                 // marginTop: px",
-                // height: "100",
+                height: "40%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -183,7 +184,7 @@ function AdCar() {
                 // backgroundRepeat: "repeat",
               }}
             >
-              <img src={Adcar} alt="" />
+              <img src={Adbike} alt="" />
             </div>
             {/* <h2>Post Your Ad</h2> */}
             <form>
@@ -199,11 +200,11 @@ function AdCar() {
                   <option value="" disabled>
                     Select a brand
                   </option>
-                  <option value="BMW">BMW</option>
-                  <option value="Rolls Royce">Rolls Royce</option>
-                  <option value="Ferrari">Ferrari</option>
-                  <option value="Mercedes">Mercedes</option>
-                  <option value="Audi">Audi</option>
+                  <option value="Duke">Duke</option>
+                  <option value="Kawasaki">Kawasaki</option>
+                  <option value="Yamaha">Yamaha</option>
+                  <option value="Honda">Honda</option>
+                  <option value="Royal Enfield">Royal Enfield</option>
                 </select>
               </label>
 
@@ -320,7 +321,7 @@ function AdCar() {
                 type="submit"
                 onClick={handleSubmit}
                 disabled={loading}
-                style={{ borderRadius: "20px" }}
+                style={{ borderRadius: "20px", backgroundColor: "#0062D1" }}
               >
                 Post Now
               </button>
@@ -332,4 +333,4 @@ function AdCar() {
   );
 }
 
-export default AdCar;
+export default AdBike;

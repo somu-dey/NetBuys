@@ -1,12 +1,45 @@
 // src/components/AboutUs.js
 import ContactUs from "../images/ContactUs.jpg";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { database } from "../components/firebase";
+import { collection, addDoc } from "firebase/firestore";
 import "./Contact.css";
+import { toast, Toaster } from "react-hot-toast";
 import Header from "../components/Header";
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  // console.log(email);
+  const sendMessageHandler = async (e) => {
+    e.preventDefault();
+    if (name === "" || email === "" || message === "") {
+      toast.error("Please Fill In Empty Fields !", {
+        position: "top-center",
+      });
+      return;
+    }
+    try {
+      const collectionRef = collection(database, "ContactUsMessages");
+      await addDoc(collectionRef, {
+        name: name,
+        email: email,
+        message: message,
+      });
+      toast.success("Message Sent, We Will Get Back To You Soon!!", {
+        position: "top-center",
+      });
+      setEmail("");
+      setMessage("");
+      setName("");
+    } catch (error) {
+      toast.error("Some Error Occurred");
+      console.error(error);
+    }
+  };
   return (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
@@ -23,6 +56,7 @@ const Contact = () => {
           flexDirection: "column",
         }}
       >
+        <Toaster position="top-center" reverseOrder={false} />
         <Header />
         <div
           className="container"
@@ -61,22 +95,38 @@ const Contact = () => {
             <h1>WE'RE READY, LET'S TALK.</h1>
             <input
               type="text"
+              value={name}
+              onChange={(e) => {
+                e.preventDefault();
+                setName(e.target.value);
+              }}
               placeholder="Enter Your Name"
               style={{ borderRadius: "20px" }}
             />
             <input
               type="email"
+              value={email}
               placeholder="Enter Your Email"
               style={{ borderRadius: "20px" }}
+              onChange={(e) => {
+                e.preventDefault();
+                setEmail(e.target.value);
+              }}
             />
             <textarea
-              name="mesaage"
+              value={message}
+              name="message"
               placeholder="Write Your Message"
               id=""
               cols="10"
               rows="2"
               style={{ borderRadius: "20px" }}
+              onChange={(e) => {
+                e.preventDefault();
+                setMessage(e.target.value);
+              }}
             ></textarea>
+
             <Button
               className="btn"
               style={{
@@ -84,6 +134,7 @@ const Contact = () => {
                 color: "white",
                 borderRadius: "20px",
               }}
+              onClick={sendMessageHandler}
             >
               Send Message
             </Button>
@@ -92,7 +143,7 @@ const Contact = () => {
         <div className="container " style={{ justifyContent: "center" }}>
           <div
             className="d-flex"
-            style={{ justifyContent: "left", marginBottom: "" }}
+            style={{ justifyContent: "center", marginBottom: "" }}
           >
             <h1>Contact Info</h1>
           </div>
@@ -100,14 +151,20 @@ const Contact = () => {
             className=""
             style={{
               display: "flex",
-              justifyContent: "left",
+              justifyContent: "center",
               // alignItems: "center",
               flexDirection: "column",
               // gap: "3rem",
               flexWrap: "wrap ",
             }}
           >
-            <div style={{ justifyContent: "left" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
               <h4>Address</h4>
               <p>SKIT College, Jaipur, Rajasthan</p>
               <h4>Email Us</h4>
