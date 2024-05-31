@@ -1,0 +1,23 @@
+.leftdiv-main {
+  width: 50%;
+}
+.rightdiv-main {
+  width: 50%;
+}
+.howItWorks {
+  border-radius: 5px;
+  height: 18rem;
+}
+.howItWorks:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #0070d4;
+  color: white;
+}
+@media screen and (max-width: 767px) {
+  .leftdiv-main {
+    width: 100%;
+  }
+  .rightdiv-main {
+    width: 100%;
+  }
+}

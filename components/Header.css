@@ -1,0 +1,144 @@
+.header {
+  display: flex;
+  /* margin: 5px; */
+  /* background-color: aqua; */
+  /* z-index: -1;
+  position: fixed; */
+  box-sizing: border-box;
+  padding: 5px;
+  justify-content: space-between !important;
+  align-items: center;
+  /* position: fixed; */
+  /* z-index: 2; */
+}
+li {
+  position: relative;
+  /* margin: 5px; */
+  padding: 5px;
+}
+li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  transition: all 0.3s linear;
+  width: 0%;
+  height: 3px;
+  background-color: #fd776b;
+}
+li:hover::before {
+  width: 90%;
+}
+
+.postad {
+  margin-left: 15px;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+}
+.profileimage {
+  height: 3rem;
+  width: 3rem;
+}
+.logo {
+  width: 200px;
+}
+.listnav {
+  display: flex;
+
+  /* justify-content: center; */
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  padding: 0px;
+  margin: 0px;
+  /* margin-left: "20rem"; */
+
+  list-style: none;
+}
+li {
+  /* padding-top: 13px; */
+  margin: 15px;
+}
+.submenu {
+  position: absolute;
+
+  top: 100%;
+
+  right: 18%;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    flex-direction: row;
+    /* justify-content: space-between; */
+  }
+  .nav-link {
+    font-size: 15px;
+  }
+  .profileimage {
+    height: 2rem;
+    width: 2rem;
+  }
+  .postad {
+    /* width: 1rem; */
+    margin-left: 10px;
+    /* height: 2.3rem; */
+  }
+  .navbar {
+    flex-direction: row;
+    /* justify-content: center; */
+    flex-wrap: nowrap;
+  }
+
+  li {
+    padding: 0px;
+    margin: 5px;
+    font-size: 10px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+  .submenu {
+    right: 30%;
+  }
+}
+.submenu_listing {
+  padding: 0.2rem;
+}
+@media screen and (max-width: 430px) {
+  .header {
+    flex-direction: row;
+    /* justify-content: space-between; */
+  }
+  .submenu_listing {
+    padding: 0.5rem;
+  }
+  .listnav {
+    padding: 0%;
+    /* margin-left: "100px"; */
+  }
+  .nav-link {
+    font-size: 10px;
+  }
+  .listview {
+    font-size: 12px;
+  }
+  .logo {
+    height: 25px;
+    width: 100px;
+  }
+  .postad {
+    /* width: 2rem; */
+    height: 2rem;
+    font-size: 9px;
+    margin-left: "10px";
+  }
+}

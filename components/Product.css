@@ -1,0 +1,61 @@
+.card {
+  width: 11rem;
+  /* height: 14rem; */
+}
+.card-body {
+  padding: 0%;
+  gap: 0px;
+  padding: 5px;
+}
+/* .card:hover {
+  width: 20rem;
+} */
+.item-image {
+  padding: 6px;
+  width: 100%;
+  height: 200px;
+  transition: transform 0.3s ease;
+}
+.item-image:hover {
+  transform: scale(1.25);
+  /* transition: all 0.4s linear; */
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 10rem;
+    /* font-size: 10px; */
+  }
+  h3 {
+    font-size: 20px;
+  }
+
+  .item-image {
+    padding: 6px;
+    width: 100%;
+    height: 200px;
+  }
+  .item-image:hover {
+    transform: scale(1.2);
+    transition: all 0.4s linear;
+  }
+}
+@media screen and (max-width: 400px) {
+  /* start of phone styles */
+  .card {
+    width: 9rem;
+    /* height: 20rem; */
+  }
+  .item-image {
+    padding: 6px;
+    /* width: 11rem; */
+    height: 200px;
+  }
+  .item-image:hover {
+    transform: scale(1.2);
+    transition: all 0.4s ease;
+  }
+  h3 {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,37 @@
+.imagediv {
+  padding: 1rem;
+  width: 100%;
+  /* border: 2px solid black; */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.topdiv {
+  padding: 2rem;
+}
+.detailsdiv {
+  padding: 2rem;
+}
+.maindiv {
+  width: 100%;
+  /* height: ; */
+  padding: 5rem;
+  flex-direction: row;
+}
+@media screen and (max-width: 1024px) {
+  .imagediv {
+    padding: 2rem;
+    width: 100%;
+  }
+  .productimage {
+    /* width: 30px; */
+    padding: 2rem;
+    height: 400px;
+  }
+  .maindiv {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .detailsdiv {
+    width: 100%;
+    padding: 1rem;
+  }
+}
